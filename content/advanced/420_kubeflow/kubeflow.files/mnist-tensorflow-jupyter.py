@@ -27,8 +27,8 @@ def preprocessing():
   class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-  print('\ntrain_images.shape: {}, of {}'.format(train_images.shape, train_images.dtype))
-  print('test_images.shape: {}, of {}'.format(test_images.shape, test_images.dtype))
+  print(f'\ntrain_images.shape: {train_images.shape}, of {train_images.dtype}')
+  print(f'test_images.shape: {test_images.shape}, of {test_images.dtype}')
 
   return train_images, train_labels, test_images, test_labels
 
@@ -58,7 +58,7 @@ def train(train_images, train_labels, epochs, model_summary_path):
 
 def eval(model, test_images, test_labels):
   test_loss, test_acc = model.evaluate(test_images, test_labels)
-  print('\nTest accuracy: {}'.format(test_acc))
+  print(f'\nTest accuracy: {test_acc}')
 
 def export_model(model, model_export_path):
   version = 1
@@ -70,7 +70,7 @@ def export_model(model, model_export_path):
     inputs={'input_image': model.input},
     outputs={t.name:t for t in model.outputs})
 
-  print('\nSaved model: {}'.format(export_path))
+  print(f'\nSaved model: {export_path}')
 
 
 def main(argv=None):
